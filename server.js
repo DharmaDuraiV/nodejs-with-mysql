@@ -1,10 +1,5 @@
-const express = require("express");
+const app = require("./app");
 const sequelize = require("./config/db");
-
-const app = express();
-const PORT = 3000;
-
-app.use(express.json());
 
 async function connectDB() {
   try {
@@ -16,38 +11,9 @@ async function connectDB() {
   }
 }
 
-connectDB();
-// console.log(sequelize);
-
-app.get("/api/v1/users", async (req, res) => {
-  res.status(200).json({
-    status: "success",
-  });
-});
-app.post("/api/v1/users", async (req, res) => {
-  res.status(201).json({
-    status: "success",
-  });
-});
-
-app.get("/api/v1/users/:id", async (req, res) => {
-  res.status(200).json({
-    status: "success",
-  });
-});
-
-app.patch("/api/v1/users/:id", async (req, res) => {
-  res.status(200).json({
-    status: "success",
-  });
-});
-
-app.delete("/api/v1/users", async (req, res) => {
-  res.status(200).json({
-    status: "success",
-  });
-});
+const PORT = 3000;
 
 app.listen(PORT, async () => {
   console.log(`Server running on port http://localhost:${PORT}`);
+  connectDB();
 });
